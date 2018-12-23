@@ -226,7 +226,7 @@
 									<td class="left">行動電話(帳號)</td>
 									<td class="left">狀態</td>
 									<td class="left">動作</td>
-									<td class="left">詳細基本資料</td>
+									<!-- <td class="left">詳細基本資料</td> -->
 								</tr>
 							</thead>
 							<tbody id="list">
@@ -259,9 +259,9 @@
 									}
 									echo "<button><a target='_blank' href='level/level.php?iden=".$member['m_mobile']."'>階層圖</a></button>";
 									echo "</td>";
-									echo "<td class='left'>";
-									echo "<button><a target='_blank' href='edit_member.php?iden=".$member['m_mobile']."'>編輯基本資料</a></button>";
-									echo "</td>";
+									// echo "<td class='left'>";
+									// echo "<button><a target='_blank' href='edit_member.php?iden=".$member['m_mobile']."'>編輯基本資料</a></button>";
+									// echo "</td>";
 									echo "</tr>";
 								} 
 							?>
