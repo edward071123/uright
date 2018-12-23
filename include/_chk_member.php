@@ -7,7 +7,7 @@
 		}
 	}else{
 		if( basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'index'){
-			header("Location: profile.php");
+			header("Location: member.php");
 		}
 	}
 ?>
