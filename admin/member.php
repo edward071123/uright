@@ -190,9 +190,9 @@
 					<div class="right"></div>
 					<div class="heading">
 						<h1 style="background-image: url('image/user.png');">會員資料查詢列表</h1>
-						<div class="buttons">
+						<!-- <div class="buttons">
 							<a href="add_member.php" class="button"><span>後台新增會員</span></a>
-						</div>
+						</div> -->
 					</div><!--heading end-->
 					<div class="content">
 						<form action="member.php"  method="get">
