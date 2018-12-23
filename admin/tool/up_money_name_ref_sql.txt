@@ -1,0 +1,6 @@
+UPDATE `money_log` SET `outsidename_ref` = '8' WHERE `money_log`.`outside_name` = '行政費用支出';
+UPDATE `money_log` SET `outsidename_ref` = '9' WHERE `money_log`.`outside_name` = '安置下面第一層收入';
+UPDATE `money_log` SET `outsidename_ref` = '10' WHERE `money_log`.`outside_name` = '安置下面第二層收入';
+UPDATE `money_log` SET `outsidename_ref` = '11' WHERE `money_log`.`outside_name` = '全國分紅';
+UPDATE `money_log` SET `outsidename_ref` = '12' WHERE `money_log`.`outside_name` = '組長購物收入';
+UPDATE `money_log` SET `outsidename_ref` = '13' WHERE `money_log`.`outside_name` = '組長購物支出'

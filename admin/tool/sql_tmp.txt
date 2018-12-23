@@ -1,0 +1,58 @@
+select distinct m1.id,m1.m_name,m1.m_identify,m1.m_sign_date, m1.m_live_zip,m1.m_mobile,m1.m_gender,m1.is_pay, m1.m_birthday,m1.m_intro_idn,m2.m_name AS intro_name, m3.mparent,m3.mparent_name,m3.mposition,m0.value,m3.level, opt.check_pay_date FROM member AS m1 JOIN ( SELECT value FROM operation_log WHERE item = 2 AND status = 1 ORDER BY id desc LIMIT 1 ) AS m0 LEFT JOIN member AS m2 ON m2.m_identify = m1.m_intro_idn LEFT JOIN ( SELECT lp.parent AS mparent,lp.children, m4.m_name AS mparent_name, lp.level,lp.position AS mposition FROM level_relationship AS lp INNER JOIN member AS m4 ON m4.m_identify = lp.parent )AS m3 ON m3.children = m1.m_identify LEFT JOIN ( SELECT set_level_date as check_pay_date , member_ori_id FROM operation_log WHERE status = 1 AND item = 1 ORDER BY set_level_date DESC Limit 1 )AS opt ON opt.member_ori_id = m1.m_identify WHERE 1 ORDER BY m1.m_sign_date DESC
+
+
+
+select distinct m1.id,m1.m_name,m1.m_identify,m1.m_sign_date, m1.m_live_zip,m1.m_mobile,m1.m_gender,m1.is_pay, m1.m_birthday,m1.m_intro_idn AS intro_name,m0.value, opt.check_pay_date 
+
+FROM member AS m1 
+
+JOIN ( SELECT value FROM operation_log WHERE item = 2 AND status = 1 ) AS m0 
+
+
+LEFT JOIN ( SELECT set_level_date as check_pay_date , member_ori_id FROM operation_log WHERE status = 1 AND item = 1
+           ORDER BY set_level_date)AS opt ON opt.member_ori_id = m1.m_identify 
+LEFT JOIN operation_log a 
+  ON a.id
+     = ( SELECT b.id 
+         FROM operation_log AS b 
+         WHERE b.member_ori_id = m1.m_identify
+         ORDER BY b.level DESC
+         LIMIT 1
+       )
+           
+WHERE m1.m_identify LIKE '%16548342%' ORDER BY m1.m_sign_date DESC
+
+
+
+
+
+
+
+
+select m1.id,m1.m_name,m1.m_identify,m1.m_sign_date, m1.m_live_zip,m1.m_mobile,m1.m_gender,m1.is_pay, m1.m_birthday,m1.m_intro_idn AS intro_name,m0.value, opt.set_level_date 
+
+FROM member AS m1 
+
+JOIN ( SELECT value FROM operation_log WHERE item = 2 AND status = 1 ORDER BY id desc  LIMIT 1 ) AS m0 
+
+LEFT JOIN  operation_log AS opt
+ON opt.member_ori_id =  m1.m_identify
+
+WHERE 1 AND m1.m_identify LIKE '%16548342%' ORDER BY m1.m_sign_date DESC
+
+
+
+
+
+SELECT m1.m_identify ,m3.*
+    FROM member AS m1
+    LEFT JOIN(
+		SELECT *
+		FROM money_log
+		WHERE SUBSTRING(log_date,1,7) = '2015-11'
+        AND logname_ref = 1
+		AND reference = 1
+		AND type = 1
+		GROUP BY to_m_number
+    ) AS m3 ON m3.to_m_number LIKE CONCAT('%', m1.m_identify ,'%') and m3.to_m_number <> m1.m_identify
+    WHERE m1.m_identify = '1040526032'
