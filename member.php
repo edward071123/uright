@@ -86,17 +86,31 @@ $(document).ready(function(){
 	</div>
 	<!-- //inner banner -->	
 	
+<style>
+.ccle {
+  margin: 30px auto;/*div對齊效果*/
+  text-align: center;/*display: inline對齊效果*/
+}
 
+.ccle div {
+  display: inline-block;/*讓div並排*/ 
+  vertical-align: top;/*就算個個div行數不同，也一律向上對齊*/ 
+  width: 130px;
+  border: 1px solid #FF0000;
+  border-radius:3px;margin: 2px;
+  }
+</style>
 
 
 	<!-- Search form -->
 	<div class="w3ls-list">
 		<div class="container">
 		<h2>會員資訊</h2>
-		
-		<a href="admin/level/level.php?iden=<?php echo $get_one[0]['m_mobile']?>">點我看會員階層圖</a>
+		<div class="ccle">
+			<div><a href="admin/level/level.php?iden=<?php echo $get_one[0]['m_mobile']?>">點我看會員階層圖</a></div>
+			<div><a href="ajax/logout.php">登出</a></div>
+		</div>
 		<p>
-		<a href="ajax/logout.php">登出</a>
 		<div class="col-md-9 profiles-list-agileits">
 		<!--Horizontal Tab-->
 			<div id="parentHorizontalTab">
@@ -189,7 +203,7 @@ $(document).ready(function(){
 						<div class="w3_regular_search">
 							  <div class="agileits_advanced_Search">
 							 	  <div class="form_but1">
-								<label class="col-sm-5 control-label1" for="sex">左邊下線 : </label>
+								<label class="col-sm-5 control-label1" for="sex">左邊下線(請填寫下線會員手機) : </label>
 								<div class="col-sm-7 form_radios">
 								  <div class="select-block1">
 									<input type="text" style="width:100%" id="left" value="<?php echo $left?>" placeholder="請填寫下線會員手機">
@@ -198,7 +212,7 @@ $(document).ready(function(){
 								<div class="clearfix"> </div>
 							  </div>
 							  <div class="form_but1">
-								<label class="col-sm-5 control-label1" for="sex">右邊下線 : </label>
+								<label class="col-sm-5 control-label1" for="sex">右邊下線(請填寫下線會員手機) : </label>
 								<div class="col-sm-7 form_radios">
 								  <div class="select-block1">
 									<input type="text" style="width:100%" id="right" value="<?php echo $right?>" placeholder="請填寫下線會員手機">
