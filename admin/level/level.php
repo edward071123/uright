@@ -10,7 +10,7 @@
 	$left = 0;
 	$right = 0;
 	$total = 0;
-	$list = "<li>".$m_number."-".$get_member[0]['m_name']."<br>會員編號:".$get_member[0]["m_ori_id"]."<br>推薦人:".$get_member[0]["m_ref_name"]."-".$get_member[0]["m_ref_mobile"]."<br>入會日期:".$get_member[0]["m_sign_date"];
+	$list = "<li>".$m_number."-".$get_member[0]['m_name']."<br>會編:".$get_member[0]["m_ori_id"]."<br>推薦人:".$get_member[0]["m_ref_name"]."-".$get_member[0]["m_ref_mobile"]."<br>入會日期:".$get_member[0]["m_sign_date"];
 	find_child($m_number,0);
 	$list .= "</li>";
 	$total = $left+$right;
