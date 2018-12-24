@@ -94,7 +94,7 @@ $(document).ready(function(){
 				</div>
 				<input type="button" class="register-btn" id="register" value="送出申請" />
 				<div class="clearfix"></div>
-				<p class="w3ls-login">已經是會員? <a href="#" data-toggle="modal" data-target="#myModal">登入</a></p>
+				<p class="w3ls-login"><a href="#" data-toggle="modal" data-target="#myModal">會員登入</a></p>
 			</form>
 		</div>
 		<!-- Modal -->

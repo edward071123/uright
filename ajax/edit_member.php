@@ -7,12 +7,18 @@
     	$data = array (
         "m_name" => $_POST['m_name'],
         "m_email" => $_POST['m_email'],
+        "m_ori_id" => $_POST['m_ori_id'],
+        "m_ref_name" => $_POST['m_ref_name'],
+        "m_ref_mobile" => $_POST['m_ref_mobile']
       );
   }else{
     $data = array (
       "m_name" => $_POST['m_name'],
       "m_email" => $_POST['m_email'],
-      "m_password" =>  $_POST['m_pwd']
+      "m_password" =>  $_POST['m_pwd'],
+      "m_ori_id" => $_POST['m_ori_id'],
+      "m_ref_name" => $_POST['m_ref_name'],
+      "m_ref_mobile" => $_POST['m_ref_mobile']
     );
   }
 	

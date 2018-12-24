@@ -144,6 +144,33 @@ $(document).ready(function(){
 								</div>
 								<div class="clearfix"> </div>
 								</div>
+									<div class="form_but1">
+								<label class="col-sm-5 control-label1" for="sex">會員編號 : </label>
+								<div class="col-sm-7 form_radios">
+								  <div class="select-block1">
+									<input type="text" style="width:100%"  id="m_ori_id" value="<?php echo $get_one[0]['m_ori_id']?>">
+								  </div>
+								</div>
+								<div class="clearfix"> </div>
+								</div>
+								 <div class="form_but1">
+								<label class="col-sm-5 control-label1" for="sex">推薦人(姓名) : </label>
+								<div class="col-sm-7 form_radios">
+								  <div class="select-block1">
+									<input type="text" style="width:100%"  id="m_ref_name" value="<?php echo $get_one[0]['m_ref_name']?>">
+								  </div>
+								</div>
+								<div class="clearfix"> </div>
+								</div>
+								<div class="form_but1">
+								<label class="col-sm-5 control-label1" for="sex">推薦人(手機) : </label>
+								<div class="col-sm-7 form_radios">
+								  <div class="select-block1">
+									<input type="text" style="width:100%"  id="m_ref_mobile" value="<?php echo $get_one[0]['m_ref_mobile']?>">
+								  </div>
+								</div>
+								<div class="clearfix"> </div>
+								</div>
 								 <div class="form_but1">
 								<label class="col-sm-5 control-label1" for="sex">會員新密碼 : </label>
 								<div class="col-sm-7 form_radios">
@@ -269,8 +296,12 @@ $(document).ready(function(){
 					var obj = {};
 					obj['m_name'] = $("#m_name").val();
 					obj['m_email'] = $("#m_email").val();
+					obj['m_ori_id'] = $("#m_ori_id").val();
+					obj['m_ref_name'] = $("#m_ref_name").val();
+					obj['m_ref_mobile'] = $("#m_ref_mobile").val();
 					obj['m_pwd'] = $("#m_pwd").val();
 					obj['m_id'] = "<?php echo $_SESSION['m_id']?>"
+					console.log(obj);
 					$.ajax({
 						url: 'ajax/edit_member.php',
 						cache: false,

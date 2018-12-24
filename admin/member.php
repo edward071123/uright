@@ -220,10 +220,11 @@
 							<thead>
 								<tr>
 									<td class="left">會員姓名</td>
-									<td class="left">性別</td>
-									<td class="left">出生日期</td>
+									<td class="left">會員編號</td>
 									<td class="left">入會日期</td>
 									<td class="left">行動電話(帳號)</td>
+									<td class="left">推薦人(姓名)</td>
+									<td class="left">推薦人(手機)</td>
 									<td class="left">狀態</td>
 									<td class="left">動作</td>
 									<!-- <td class="left">詳細基本資料</td> -->
@@ -233,21 +234,18 @@
 							<?php 
 								foreach ($members as $member){ 
 									$status = '尚未審核';
-									$gender = '男';
 									if($member['status'] == 1){
 										$status = '上線';
 									}else if($member['status'] == 2){
 										$status = '停權';
 									}
-									if($member['m_gender'] == 2){
-										$gender = '女';
-									}
 									echo "<tr>";
 									echo "<td class='left'>".$member['m_name']."</td>";
-									echo "<td class='left'>".$gender."</td>";
-									echo "<td class='left'>".$member['m_birthday']."</td>";
+									echo "<td class='left'>".$member['m_ori_id']."</td>";
 									echo "<td class='left'>".$member['m_sign_date']."</td>";
 									echo "<td class='left'>".$member['m_mobile']."</td>";
+									echo "<td class='left'>".$member['m_ref_name']."</td>";
+									echo "<td class='left'>".$member['m_ref_mobile']."</td>";
 									echo "<td class='left'>".$status."</td>";
 									echo "<td class='left'>";
 									if($member['status'] == 0){
