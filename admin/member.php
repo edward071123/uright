@@ -223,8 +223,8 @@
 									<td class="left">會員編號</td>
 									<td class="left">入會日期</td>
 									<td class="left">行動電話(帳號)</td>
-									<td class="left">推薦人(姓名)</td>
-									<td class="left">推薦人(手機)</td>
+									<td class="left">email</td>
+									<td class="left">推薦人</td>
 									<td class="left">狀態</td>
 									<td class="left">動作</td>
 									<!-- <td class="left">詳細基本資料</td> -->
@@ -244,8 +244,8 @@
 									echo "<td class='left'>".$member['m_ori_id']."</td>";
 									echo "<td class='left'>".$member['m_sign_date']."</td>";
 									echo "<td class='left'>".$member['m_mobile']."</td>";
-									echo "<td class='left'>".$member['m_ref_name']."</td>";
-									echo "<td class='left'>".$member['m_ref_mobile']."</td>";
+									echo "<td class='left'>".$member['m_email']."</td>";
+									echo "<td class='left'>".$member['m_ref_name']."-".$member['m_ref_mobile']."</td>";
 									echo "<td class='left'>".$status."</td>";
 									echo "<td class='left'>";
 									if($member['status'] == 0){
