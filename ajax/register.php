@@ -3,7 +3,7 @@
   $data_message = array();
   $table = 'member';
 
-  $pass = substr( $_POST['mobile'], 5 , 4 );
+  $pass = substr( $_POST['mobile'], 6 , 4 );
 	$data = array (
     "m_mobile" =>  $_POST['mobile'],
     "m_name" => $_POST['name'],
