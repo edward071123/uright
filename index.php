@@ -71,7 +71,7 @@ $(document).ready(function(){
 <div class="w3layouts-banner" id="home">
 <div class="container">
 	<div class="logo">
-		<h1><a class="cd-logo link link--takiri" href="index.php">Uright-Line </a></h1>
+		<h1><a class="cd-logo link link--takiri" href="index.php">Uright-Line 雙向制排線管理系統</a></h1>
 	</div>
 	<div class="clearfix"></div>
 	<div class="agileits-register">
