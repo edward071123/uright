@@ -30,7 +30,7 @@
 		$lv++;
 		$level++;
 		foreach ($chis as $chi){ 
-				$list .= "<li>".$chi['children']."-".$chi["m_name"]."<br>會員編號:".$chi["m_ori_id"]."<br>推薦人:".$chi["m_ref_name"]."-".$chi["m_ref_mobile"]."<br>入會日期:".$chi["m_sign_date"];
+				$list .= "<li>".$chi['children']."-".$chi["m_name"]."<br>會編:".$chi["m_ori_id"]."<br>推薦人:".$chi["m_ref_name"]."-".$chi["m_ref_mobile"]."<br>入會日期:".$chi["m_sign_date"];
 				if($chi['p_count'] != 0 && $lv == 1){
 					find_child($chi['children'],$chi['position']);
 				}else if($chi['p_count'] != 0 && $lv > 1){
