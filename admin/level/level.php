@@ -4,18 +4,21 @@
 
 	$db->join("level_relationship lr", "lr.children=m.m_mobile", "LEFT");
 	$db->where('m_mobile', $m_number);
-	$get_member = $db->get ("member m", null, "m.m_name");
+	$get_member = $db->get ("member m", null, "m.m_name,m.m_ori_id,m.m_ref_name,m.m_ref_mobile,m.m_sign_date");
 	$lv = 0;
+	$level = 0;
 	$left = 0;
 	$right = 0;
-	$list = "<li>".$m_number."<br>".$get_member[0]['m_name'];
+	$total = 0;
+	$list = "<li>".$m_number."-".$get_member[0]['m_name']."<br>會員編號:".$get_member[0]["m_ori_id"]."<br>推薦人:".$get_member[0]["m_ref_name"]."-".$get_member[0]["m_ref_mobile"]."<br>入會日期:".$get_member[0]["m_sign_date"];
 	find_child($m_number,0);
 	$list .= "</li>";
+	$total = $left+$right;
     	//============================
 	function find_child($parent,$type){
-		global $db,$list,$lv,$left,$right;
+		global $db,$list,$lv,$left,$right,$level;
 		$params = array($parent);
-		$sql_chi = "SELECT lr.*, m.m_name,
+		$sql_chi = "SELECT lr.*,m.m_name,m.m_ori_id,m.m_ref_name,m.m_ref_mobile,m.m_sign_date,
 				(SELECT COUNT(*) FROM level_relationship WHERE lr.children = parent ) AS p_count
 				FROM level_relationship AS lr, member AS m
 				WHERE m.m_mobile = lr.children
@@ -25,8 +28,9 @@
 		$chis = $db->rawQuery ($sql_chi, $params);
 		$list .= "<ul>";
 		$lv++;
+		$level++;
 		foreach ($chis as $chi){ 
-				$list .= "<li>".$chi['children']."<br>".$chi["m_name"];
+				$list .= "<li>".$chi['children']."-".$chi["m_name"]."<br>會員編號:".$chi["m_ori_id"]."<br>推薦人:".$chi["m_ref_name"]."-".$chi["m_ref_mobile"]."<br>入會日期:".$chi["m_sign_date"];
 				if($chi['p_count'] != 0 && $lv == 1){
 					find_child($chi['children'],$chi['position']);
 				}else if($chi['p_count'] != 0 && $lv > 1){
@@ -46,6 +50,10 @@
 		$lv--;
 		$list .= "</ul>";
 	}
+	echo  '目前總層數:'.($level);
+	echo "<p>";
+	echo  '總人數:'.$total;
+	echo "<p>";
 	echo '左邊:'.$left;
 	echo "<p>";
 	echo '右邊:'.$right;
