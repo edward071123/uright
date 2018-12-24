@@ -10,7 +10,7 @@
 	$left = 0;
 	$right = 0;
 	$total = 0;
-	$list = "<li>會編:".$get_member[0]["m_ori_id"]."<br>姓名:".$m_number."<br>手機:".$get_member[0]['m_name']."<br>推薦人:".$get_member[0]["m_ref_name"]."-".$get_member[0]["m_ref_mobile"];
+	$list = "<li>會編:".$get_member[0]["m_ori_id"]."<br>姓名:".$get_member[0]['m_name']."<br>手機:".$m_number."<br>推薦人:".$get_member[0]["m_ref_name"]."-".$get_member[0]["m_ref_mobile"];
 	find_child($m_number,0);
 	$list .= "</li>";
 	$total = $left+$right;
@@ -30,7 +30,7 @@
 		$lv++;
 		$level++;
 		foreach ($chis as $chi){ 
-				$list .= "<li>會編:".$chi["m_ori_id"]."<br>姓名:".$chi['children']."<br>手機:".$chi["m_name"]."<br>推薦人:".$chi["m_ref_name"]."-".$chi["m_ref_mobile"];
+				$list .= "<li>會編:".$chi["m_ori_id"]."<br>姓名:".$chi['m_name']."<br>手機:".$chi["children"]."<br>推薦人:".$chi["m_ref_name"]."-".$chi["m_ref_mobile"];
 				if($chi['p_count'] != 0 && $lv == 1){
 					find_child($chi['children'],$chi['position']);
 				}else if($chi['p_count'] != 0 && $lv > 1){
